@@ -1,0 +1,20 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "DenyUnencryptedRDSInstanceCreation",
+        "Effect": "Deny",
+        "Action": [
+          "rds:CreateDBInstance",
+          "rds:CreateDBCluster"
+        ],
+        "Resource": "*",
+        "Condition": {
+          "Bool": {
+            "rds:StorageEncrypted": "false"
+          }
+        }
+      }
+    ]
+  }
+  
